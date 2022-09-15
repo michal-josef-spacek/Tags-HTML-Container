@@ -24,8 +24,9 @@ sub new {
 	# Container align.
 	$self->{'align'} = 'center';
 
-	# CSS class.
+	# CSS classes.
 	$self->{'css_container'} = 'container';
+	$self->{'css_inner'} = 'inner';
 
 	# Process params.
 	set_params($self, @{$object_params_ar});
@@ -46,13 +47,15 @@ sub new {
 sub _process {
 	my ($self, $tags_cb) = @_;
 
-	# TODO
 	$self->{'tags'}->put(
 		['b', 'div'],
 		['a', 'class', $self->{'css_container'}],
+		['b', 'div'],
+		['a', 'class', $self->{'css_inner'}],
 	);
 	$tags_cb->($self);
 	$self->{'tags'}->put(
+		['e', 'div'],
 		['e', 'div'],
 	);
 
@@ -64,7 +67,14 @@ sub _process_css {
 
 	$self->{'css'}->put(
 		['s', '.'.$self->{'css_container'}],
-		# TODO
+		['d', 'position', 'fixed'],
+		['d', 'top', '50%'],
+		['d', 'left', '50%'],
+		['d', 'transform', 'translate(-50%, -50%)'],
+		['e'],
+
+		['s', '.'.$self->{'css_inner'}],
+		['d', 'text-align', $self->{'align'}],
 		['e'],
 	);
 
