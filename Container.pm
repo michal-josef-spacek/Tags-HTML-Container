@@ -9,7 +9,15 @@ use Error::Pure qw(err);
 use List::Util qw(none);
 use Readonly;
 
-Readonly::Array our @ALIGN => qw(center left right);
+Readonly::Array our @HORIZ_ALIGN => qw(center left right);
+Readonly::Array our @VERT_ALIGN => qw(base bottom center fit top);
+Readonly::Hash our %VERT_CONV => (
+	'base' => 'baseline',
+	'bottom' => 'flex-end',
+	'center' => 'center',
+	'fit' => 'stretch',
+	'top' => 'flex-start',
+);
 
 our $VERSION = 0.01;
 
@@ -18,11 +26,12 @@ sub new {
 
 	# Create object.
 	my ($object_params_ar, $other_params_ar) = split_params(
-		['align', 'css_container', 'css_inner'], @params);
+		['css_container', 'css_inner', 'horiz_align', 'vert_align'], @params);
 	my $self = $class->SUPER::new(@{$other_params_ar});
 
 	# Container align.
-	$self->{'align'} = 'center';
+	$self->{'horiz_align'} = 'center';
+	$self->{'vert_align'} = 'center';
 
 	# CSS classes.
 	$self->{'css_container'} = 'container';
@@ -31,12 +40,21 @@ sub new {
 	# Process params.
 	set_params($self, @{$object_params_ar});
 
-	if (! defined $self->{'align'}) {
-		err "Parameter 'align' is required.";
+	if (! defined $self->{'horiz_align'}) {
+		err "Parameter 'horiz_align' is required.";
 	}
-	if (none { $self->{'align'} eq $_ } @ALIGN) {
-		err "Parameter 'align' have a bad value.",
-			'Value', $self->{'align'},
+	if (none { $self->{'horiz_align'} eq $_ } @HORIZ_ALIGN) {
+		err "Parameter 'horiz_align' have a bad value.",
+			'Value', $self->{'horiz_align'},
+		;
+	}
+
+	if (! defined $self->{'vert_align'}) {
+		err "Parameter 'vert_align' is required.";
+	}
+	if (none { $self->{'vert_align'} eq $_ } @VERT_ALIGN) {
+		err "Parameter 'vert_align' have a bad value.",
+			'Value', $self->{'vert_align'},
 		;
 	}
 
@@ -67,14 +85,10 @@ sub _process_css {
 
 	$self->{'css'}->put(
 		['s', '.'.$self->{'css_container'}],
-		['d', 'position', 'fixed'],
-		['d', 'top', '50%'],
-		['d', 'left', '50%'],
-		['d', 'transform', 'translate(-50%, -50%)'],
-		['e'],
-
-		['s', '.'.$self->{'css_inner'}],
-		['d', 'text-align', $self->{'align'}],
+		['d', 'display', 'flex'],
+		['d', 'align-items', $VERT_CONV{$self->{'vert_align'}}],
+		['d', 'justify-content', $self->{'horiz_align'}],
+		['d', 'height', '100vh'],
 		['e'],
 	);
 

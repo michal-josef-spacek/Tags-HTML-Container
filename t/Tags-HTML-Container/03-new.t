@@ -5,7 +5,7 @@ use English;
 use Error::Pure::Utils qw(clean err_msg);
 use Tags::HTML::Container;
 use Tags::Output::Raw;
-use Test::More 'tests' => 7;
+use Test::More 'tests' => 9;
 use Test::NoWarnings;
 
 # Test.
@@ -47,27 +47,55 @@ clean();
 # Test.
 eval {
 	Tags::HTML::Container->new(
-		'align' => undef,
+		'horiz_align' => undef,
 	);
 };
-is($EVAL_ERROR, "Parameter 'align' is required.\n",
-	"Parameter 'align' is required.");
+is($EVAL_ERROR, "Parameter 'horiz_align' is required.\n",
+	"Parameter 'horiz_align' is required.");
 clean();
 
 # Test.
 eval {
 	Tags::HTML::Container->new(
-		'align' => 'bad',
+		'horiz_align' => 'bad',
 	);
 };
 my @error = err_msg();
 is_deeply(
 	\@error,
 	[
-		"Parameter 'align' have a bad value.",
+		"Parameter 'horiz_align' have a bad value.",
 		'Value',
 		'bad',
 	],
-	"Parameter 'align' have a bad value.",
+	"Parameter 'horiz_align' have a bad value.",
+);
+clean();
+
+# Test.
+eval {
+	Tags::HTML::Container->new(
+		'vert_align' => undef,
+	);
+};
+is($EVAL_ERROR, "Parameter 'vert_align' is required.\n",
+	"Parameter 'vert_align' is required.");
+clean();
+
+# Test.
+eval {
+	Tags::HTML::Container->new(
+		'vert_align' => 'bad',
+	);
+};
+@error = err_msg();
+is_deeply(
+	\@error,
+	[
+		"Parameter 'vert_align' have a bad value.",
+		'Value',
+		'bad',
+	],
+	"Parameter 'vert_align' have a bad value.",
 );
 clean();
