@@ -65,6 +65,10 @@ sub new {
 sub _process {
 	my ($self, $tags_cb) = @_;
 
+	if (! defined $tags_cb) {
+		err "There is no contained callback with Tags code.";
+	}
+
 	$self->{'tags'}->put(
 		['b', 'div'],
 		['a', 'class', $self->{'css_container'}],
