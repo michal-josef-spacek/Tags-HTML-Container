@@ -151,7 +151,7 @@ Default value is 'inner'.
 
 Horizontal align.
 
-Possible values are: base bottom center fit top
+Possible values are: center left right
 
 Default value is 'center'.
 
