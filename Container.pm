@@ -81,7 +81,7 @@ sub _process {
 }
 
 sub _process_css {
-	my $self = shift;
+	my ($self, $css_cb) = @_;
 
 	$self->{'css'}->put(
 		['s', '.'.$self->{'css_container'}],
@@ -91,6 +91,7 @@ sub _process_css {
 		['d', 'height', '100vh'],
 		['e'],
 	);
+	$css_cb->($self);
 
 	return;
 }
