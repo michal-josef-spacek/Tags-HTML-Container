@@ -2,7 +2,8 @@ TODO
 ====
 1. Check css classes.
 4. Tests.
-5.
+5. Advanced example with Plack::App::Login::Password.
+6.
 
 Applied
 =======
