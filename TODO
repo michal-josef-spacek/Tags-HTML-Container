@@ -1,7 +1,6 @@
 TODO
 ====
 1. Check css classes.
-4. Tests.
 5. Advanced example with Plack::App::Login::Password.
 6.
 
@@ -12,3 +11,6 @@ OK [20230123] skim
 
 3. Implement right
 OK [20230123] skim
+
+4. Tests.
+OK [20230529] skim

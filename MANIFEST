@@ -20,5 +20,7 @@ README
 t/Tags-HTML-Container/01-use.t
 t/Tags-HTML-Container/02-version.t
 t/Tags-HTML-Container/03-new.t
+t/Tags-HTML-Container/04-process.t
+t/Tags-HTML-Container/05-process_css.t
 xt/Tags-HTML-Container/01-pod_coverage.t
 xt/Tags-HTML-Container/02-pod.t
