@@ -2,8 +2,6 @@ TODO
 ====
 1. Check css classes.
 5. Advanced example with Plack::App::Login::Password.
-6. Add user class for 'inner' and use it for user box.
-See Plack::App::Search and Plack::App::Login::Password
 7.
 
 Applied
@@ -16,3 +14,8 @@ OK [20230123] skim
 
 4. Tests.
 OK [20230529] skim
+
+6. Add user class for 'inner' and use it for user box.
+See Plack::App::Search and Plack::App::Login::Password
+I have this functionality
+NONE [20230608] skim
