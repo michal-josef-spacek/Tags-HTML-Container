@@ -2,7 +2,9 @@ TODO
 ====
 1. Check css classes.
 5. Advanced example with Plack::App::Login::Password.
-6.
+6. Add user class for 'inner' and use it for user box.
+See Plack::App::Search and Plack::App::Login::Password
+7.
 
 Applied
 =======
