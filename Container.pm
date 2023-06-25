@@ -26,7 +26,7 @@ sub new {
 
 	# Create object.
 	my ($object_params_ar, $other_params_ar) = split_params(
-		['css_container', 'css_inner', 'horiz_align', 'vert_align'], @params);
+		['css_container', 'css_inner', 'height', 'horiz_align', 'vert_align'], @params);
 	my $self = $class->SUPER::new(@{$other_params_ar});
 
 	# Container align.
@@ -36,6 +36,9 @@ sub new {
 	# CSS classes.
 	$self->{'css_container'} = 'container';
 	$self->{'css_inner'} = 'inner';
+
+	# Height.
+	$self->{'height'} = '100vh';
 
 	# Process params.
 	set_params($self, @{$object_params_ar});
@@ -92,7 +95,7 @@ sub _process_css {
 		['d', 'display', 'flex'],
 		['d', 'align-items', $VERT_CONV{$self->{'vert_align'}}],
 		['d', 'justify-content', $self->{'horiz_align'}],
-		['d', 'height', '100vh'],
+		['d', 'height', $self->{'height'}],
 		['e'],
 	);
 
@@ -146,6 +149,12 @@ Default value is 'container'.
 CSS class for inner box in container.
 
 Default value is 'inner'.
+
+=item * C<height>
+
+Container height in CSS style.
+
+Default value is '100vh'.
 
 =item * C<horiz_align>
 

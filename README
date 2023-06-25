@@ -32,6 +32,12 @@ METHODS
 
             Default value is 'inner'.
 
+    *       "height"
+
+            Container height in CSS style.
+
+            Default value is '100vh'.
+
     *       "horiz_align"
 
             Horizontal align.
