@@ -1,6 +1,7 @@
 0.04
  - Add cleanup(), init(), prepare() and process_css() callbacks to handle
    phases.
+ - Update copyright years.
 
 0.03 2023-06-25T16:12:38+02:00
  - Add parameter for container height.
