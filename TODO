@@ -2,7 +2,10 @@ TODO
 ====
 1. Check css classes.
 5. Advanced example with Plack::App::Login::Password.
-7.
+7. Test callback in init().
+8. Test callback in prepare().
+9. Test callback in cleanup().
+10.
 
 Applied
 =======
