@@ -5,7 +5,7 @@ use CSS::Struct::Output::Structure;
 use English;
 use Error::Pure::Utils qw(clean);
 use Tags::HTML::Container;
-use Test::More 'tests' => 9;
+use Test::More 'tests' => 10;
 use Test::NoWarnings;
 
 # Test.
@@ -150,6 +150,40 @@ is_deeply(
 		['e'],
 	],
 	'Container CSS code (center-bottom).',
+);
+
+# Test.
+$css = CSS::Struct::Output::Structure->new;
+$obj = Tags::HTML::Container->new(
+	'css' => $css,
+	'vert_align' => 'bottom',
+);
+$obj->process_css(sub {
+	my $self = shift;
+
+	$self->{'css'}->put(
+		['s', '.foo'],
+		['d', 'display', 'flex'],
+		['e'],
+	);
+
+	return;
+});
+$ret_ar = $css->flush(1);
+is_deeply(
+	$ret_ar,
+	[
+		['s', '.container'],
+		['d', 'display', 'flex'],
+		['d', 'align-items', 'flex-end'],
+		['d', 'justify-content', 'center'],
+		['d', 'height', '100vh'],
+		['e'],
+		['s', '.foo'],
+		['d', 'display', 'flex'],
+		['e'],
+	],
+	'Container CSS code (center-bottom + css callback).',
 );
 
 # Test.
