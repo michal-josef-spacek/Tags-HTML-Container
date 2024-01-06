@@ -1,5 +1,6 @@
 0.04
  - Add test for CSS callback.
+ - Add tests for cleanup(), init() and prepare() without callbacks.
  - Add cleanup(), init(), prepare() and process_css() callbacks to handle
    phases.
  - Update copyright years.
