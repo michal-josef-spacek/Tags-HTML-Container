@@ -32,7 +32,7 @@ requires:
   Error::Pure: 0
   List::Util: 0
   Readonly: 0
-  Tags::HTML: 0.02
+  Tags::HTML: 0.08
   perl: 5.8.0
 resources:
   bugtracker: https://github.com/michal-josef-spacek/Tags-HTML-Container/issues
