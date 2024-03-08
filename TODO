@@ -2,7 +2,6 @@ TODO
 ====
 1. Check css classes.
 5. Advanced example with Plack::App::Login::Password.
-7. Test callback in init().
 8. Test callback in prepare().
 9. Test callback in cleanup().
 10.
@@ -22,3 +21,6 @@ OK [20230529] skim
 See Plack::App::Search and Plack::App::Login::Password
 I have this functionality
 NONE [20230608] skim
+
+7. Test callback in init().
+OK [20240308] skim
