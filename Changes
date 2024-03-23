@@ -1,4 +1,5 @@
 0.06
+ - Add tests.
  - Fix test message.
  - Remove dependency to Tags::Output::Raw.
 
