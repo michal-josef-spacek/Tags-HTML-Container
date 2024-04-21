@@ -119,6 +119,13 @@ ERRORS
              From Class::Utils::set_params():
                      Unknown parameter '%s'.
              from Mo::utils::CSS::check_css_unit():
+                     Parameter 'height' doesn't contain number.
+                             Value: %s
+                     Parameter 'height' doesn't contain unit.
+                             Value: %s
+                     Parameter 'height' contain bad unit.
+                             Unit: %s
+                             Value: %s
                      Parameter 'padding' doesn't contain number.
                              Value: %s
                      Parameter 'padding' doesn't contain unit.
