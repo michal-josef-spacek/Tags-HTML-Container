@@ -26,7 +26,8 @@ sub new {
 
 	# Create object.
 	my ($object_params_ar, $other_params_ar) = split_params(
-		['css_container', 'css_inner', 'height', 'horiz_align', 'vert_align'], @params);
+		['css_container', 'css_inner', 'height', 'horiz_align',
+		'vert_align'], @params);
 	my $self = $class->SUPER::new(@{$other_params_ar});
 
 	# Container align.
