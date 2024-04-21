@@ -7,6 +7,7 @@ use warnings;
 use Class::Utils qw(set_params split_params);
 use Error::Pure qw(err);
 use List::Util 1.33 qw(none);
+use Mo::utils::CSS qw(check_css_unit);
 use Readonly;
 
 Readonly::Array our @HORIZ_ALIGN => qw(center left right);
@@ -27,7 +28,7 @@ sub new {
 	# Create object.
 	my ($object_params_ar, $other_params_ar) = split_params(
 		['css_container', 'css_inner', 'height', 'horiz_align',
-		'vert_align'], @params);
+		'padding', 'vert_align'], @params);
 	my $self = $class->SUPER::new(@{$other_params_ar});
 
 	# Container align.
@@ -40,6 +41,9 @@ sub new {
 
 	# Height.
 	$self->{'height'} = '100vh';
+
+	# Padding.
+	$self->{'padding'} = undef;
 
 	# Process params.
 	set_params($self, @{$object_params_ar});
@@ -61,6 +65,8 @@ sub new {
 			'Value', $self->{'vert_align'},
 		;
 	}
+
+	check_css_unit($self, 'padding');
 
 	# Object.
 	return $self;
@@ -127,6 +133,9 @@ sub _process_css {
 		['d', 'align-items', $VERT_CONV{$self->{'vert_align'}}],
 		['d', 'justify-content', $self->{'horiz_align'}],
 		['d', 'height', $self->{'height'}],
+		defined $self->{'padding'} ? (
+			['d', 'padding', $self->{'padding'}],
+		) : (),
 		['e'],
 	);
 	if (defined $css_cb) {
@@ -201,6 +210,12 @@ Possible values are: center left right
 
 Default value is 'center'.
 
+=item * C<padding>
+
+Container padding.
+
+Default value is undef.
+
 =item * C<vert_align>
 
 Vertical align.
@@ -269,6 +284,14 @@ Returns undef.
  new():
          From Class::Utils::set_params():
                  Unknown parameter '%s'.
+         from Mo::utils::CSS::check_css_unit():
+                 Parameter 'padding' doesn't contain number.
+                         Value: %s
+                 Parameter 'padding' doesn't contain unit.
+                         Value: %s
+                 Parameter 'padding' contain bad unit.
+                         Unit: %s
+                         Value: %s
          From Tags::HTML::new():
                  Parameter 'css' must be a 'CSS::Struct::Output::*' class.
                  Parameter 'tags' must be a 'Tags::Output::*' class.
@@ -341,6 +364,7 @@ Returns undef.
 L<Class::Utils>,
 L<Error::Pure>,
 L<List::Util>,
+L<Mo::utils::CSS>,
 L<Readonly>,
 L<Tags::HTML>,
 

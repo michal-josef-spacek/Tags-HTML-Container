@@ -49,6 +49,12 @@ METHODS
 
             Default value is 'center'.
 
+    *       "padding"
+
+            Container padding.
+
+            Default value is undef.
+
     *       "vert_align"
 
             Vertical align.
@@ -112,6 +118,14 @@ ERRORS
      new():
              From Class::Utils::set_params():
                      Unknown parameter '%s'.
+             from Mo::utils::CSS::check_css_unit():
+                     Parameter 'padding' doesn't contain number.
+                             Value: %s
+                     Parameter 'padding' doesn't contain unit.
+                             Value: %s
+                     Parameter 'padding' contain bad unit.
+                             Unit: %s
+                             Value: %s
              From Tags::HTML::new():
                      Parameter 'css' must be a 'CSS::Struct::Output::*' class.
                      Parameter 'tags' must be a 'Tags::Output::*' class.
@@ -177,7 +191,8 @@ EXAMPLE
      # }
 
 DEPENDENCIES
-    Class::Utils, Error::Pure, List::Util, Readonly, Tags::HTML,
+    Class::Utils, Error::Pure, List::Util, Mo::utils::CSS, Readonly,
+    Tags::HTML,
 
 REPOSITORY
     <https://github.com/michal-josef-spacek/Tags-HTML-Container>
