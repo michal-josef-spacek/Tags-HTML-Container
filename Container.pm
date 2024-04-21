@@ -20,7 +20,7 @@ Readonly::Hash our %VERT_CONV => (
 	'top' => 'flex-start',
 );
 
-our $VERSION = 0.07;
+our $VERSION = 0.08;
 
 sub new {
 	my ($class, @params) = @_;
@@ -439,6 +439,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.07
+0.08
 
 =cut
