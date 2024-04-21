@@ -1,7 +1,6 @@
 TODO
 ====
 1. Check css classes.
-5. Advanced example with Plack::App::Login::Password.
 10.
 
 Applied
@@ -28,3 +27,6 @@ OK [20240308] skim
 
 9. Test callback in cleanup().
 OK [20240308] skim
+
+5. Advanced example with Plack::App::Login::Password.
+OK [20240421] skim
