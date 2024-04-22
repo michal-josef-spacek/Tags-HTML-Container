@@ -1,7 +1,12 @@
 TODO
 ====
 1. Check css classes.
-10.
+10. There is issue with page which is smaller than content for horizontal centering.
+    There are two possibilities:
+    - Describe caveat
+    - Somehow fix issue. When I define min-width, this is working, but not in
+      common way when we don't know width.
+11.
 
 Applied
 =======
