@@ -7,6 +7,7 @@ use warnings;
 use Class::Utils qw(set_params split_params);
 use Error::Pure qw(err);
 use List::Util 1.33 qw(none);
+use Mo::utils 0.01 qw(check_required);
 use Mo::utils::CSS qw(check_css_unit);
 use Readonly;
 
@@ -48,18 +49,14 @@ sub new {
 	# Process params.
 	set_params($self, @{$object_params_ar});
 
-	if (! defined $self->{'horiz_align'}) {
-		err "Parameter 'horiz_align' is required.";
-	}
+	check_required($self, 'horiz_align');
 	if (none { $self->{'horiz_align'} eq $_ } @HORIZ_ALIGN) {
 		err "Parameter 'horiz_align' have a bad value.",
 			'Value', $self->{'horiz_align'},
 		;
 	}
 
-	if (! defined $self->{'vert_align'}) {
-		err "Parameter 'vert_align' is required.";
-	}
+	check_required($self, 'vert_align');
 	if (none { $self->{'vert_align'} eq $_ } @VERT_ALIGN) {
 		err "Parameter 'vert_align' have a bad value.",
 			'Value', $self->{'vert_align'},
@@ -285,6 +282,9 @@ Returns undef.
  new():
          From Class::Utils::set_params():
                  Unknown parameter '%s'.
+         From Mo::utils::check_required():
+                 Parameter 'horiz_align' is required.
+                 Parameter 'vert_align' is required.
          from Mo::utils::CSS::check_css_unit():
                  Parameter 'height' doesn't contain number.
                          Value: %s
@@ -303,10 +303,8 @@ Returns undef.
          From Tags::HTML::new():
                  Parameter 'css' must be a 'CSS::Struct::Output::*' class.
                  Parameter 'tags' must be a 'Tags::Output::*' class.
-         Parameter 'horiz_align' is required.
          Parameter 'horiz_align' have a bad value.
                  Value: %s
-         Parameter 'vert_align' is required.
          Parameter 'vert_align' have a bad value.
                  Value: %s
 
@@ -417,6 +415,7 @@ Returns undef.
 L<Class::Utils>,
 L<Error::Pure>,
 L<List::Util>,
+L<Mo::utils>,
 L<Mo::utils::CSS>,
 L<Readonly>,
 L<Tags::HTML>,

@@ -118,6 +118,9 @@ ERRORS
      new():
              From Class::Utils::set_params():
                      Unknown parameter '%s'.
+             From Mo::utils::check_required():
+                     Parameter 'horiz_align' is required.
+                     Parameter 'vert_align' is required.
              from Mo::utils::CSS::check_css_unit():
                      Parameter 'height' doesn't contain number.
                              Value: %s
@@ -136,10 +139,8 @@ ERRORS
              From Tags::HTML::new():
                      Parameter 'css' must be a 'CSS::Struct::Output::*' class.
                      Parameter 'tags' must be a 'Tags::Output::*' class.
-             Parameter 'horiz_align' is required.
              Parameter 'horiz_align' have a bad value.
                      Value: %s
-             Parameter 'vert_align' is required.
              Parameter 'vert_align' have a bad value.
                      Value: %s
 
@@ -232,8 +233,8 @@ EXAMPLE2
      # Output screenshot is in images/ directory.
 
 DEPENDENCIES
-    Class::Utils, Error::Pure, List::Util, Mo::utils::CSS, Readonly,
-    Tags::HTML,
+    Class::Utils, Error::Pure, List::Util, Mo::utils, Mo::utils::CSS,
+    Readonly, Tags::HTML,
 
 REPOSITORY
     <https://github.com/michal-josef-spacek/Tags-HTML-Container>
