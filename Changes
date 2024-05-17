@@ -1,4 +1,5 @@
 0.08
+ - Add explicit version of Mo::utils::CSS to code.
  - Check for required values move to Mo::utils.
  - Fix typo in doc.
 
