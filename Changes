@@ -1,4 +1,4 @@
-0.08
+0.08 2024-05-17T10:09:16+02:00
  - Add check for CSS classes.
  - Add explicit version of Mo::utils::CSS to code.
  - Check for required values move to Mo::utils.
