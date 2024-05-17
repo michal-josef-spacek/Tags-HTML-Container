@@ -285,7 +285,7 @@ Returns undef.
          From Mo::utils::check_required():
                  Parameter 'horiz_align' is required.
                  Parameter 'vert_align' is required.
-         from Mo::utils::CSS::check_css_unit():
+         From Mo::utils::CSS::check_css_unit():
                  Parameter 'height' doesn't contain number.
                          Value: %s
                  Parameter 'height' doesn't contain unit.
