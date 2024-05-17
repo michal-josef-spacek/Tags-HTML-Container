@@ -121,6 +121,15 @@ ERRORS
              From Mo::utils::check_required():
                      Parameter 'horiz_align' is required.
                      Parameter 'vert_align' is required.
+             From Mo::utils::CSS::check_css_class():
+                     Parameter 'css_container' has bad CSS class name.
+                             Value: %s
+                     Parameter 'css_container' has bad CSS class name (number on begin).
+                             Value: %s
+                     Parameter 'css_inner' has bad CSS class name.
+                             Value: %s
+                     Parameter 'css_inner' has bad CSS class name (number on begin).
+                             Value: %s
              From Mo::utils::CSS::check_css_unit():
                      Parameter 'height' doesn't contain number.
                              Value: %s

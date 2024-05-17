@@ -8,7 +8,7 @@ use Class::Utils qw(set_params split_params);
 use Error::Pure qw(err);
 use List::Util 1.33 qw(none);
 use Mo::utils 0.01 qw(check_required);
-use Mo::utils::CSS 0.06 qw(check_css_unit);
+use Mo::utils::CSS 0.06 qw(check_css_class check_css_unit);
 use Readonly;
 
 Readonly::Array our @HORIZ_ALIGN => qw(center left right);
@@ -62,6 +62,9 @@ sub new {
 			'Value', $self->{'vert_align'},
 		;
 	}
+
+	check_css_class($self, 'css_container');
+	check_css_class($self, 'css_inner');
 
 	check_css_unit($self, 'height');
 	check_css_unit($self, 'padding');
@@ -285,6 +288,15 @@ Returns undef.
          From Mo::utils::check_required():
                  Parameter 'horiz_align' is required.
                  Parameter 'vert_align' is required.
+         From Mo::utils::CSS::check_css_class():
+                 Parameter 'css_container' has bad CSS class name.
+                         Value: %s
+                 Parameter 'css_container' has bad CSS class name (number on begin).
+                         Value: %s
+                 Parameter 'css_inner' has bad CSS class name.
+                         Value: %s
+                 Parameter 'css_inner' has bad CSS class name (number on begin).
+                         Value: %s
          From Mo::utils::CSS::check_css_unit():
                  Parameter 'height' doesn't contain number.
                          Value: %s

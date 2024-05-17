@@ -1,6 +1,5 @@
 TODO
 ====
-1. Check css classes.
 10. There is issue with page which is smaller than content for horizontal centering.
     There are two possibilities:
     - Describe caveat
@@ -35,3 +34,6 @@ OK [20240308] skim
 
 5. Advanced example with Plack::App::Login::Password.
 OK [20240421] skim
+
+1. Check css classes.
+OK [20240517] skim
