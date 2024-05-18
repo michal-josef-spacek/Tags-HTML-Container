@@ -8,7 +8,7 @@ use Class::Utils qw(set_params split_params);
 use Error::Pure qw(err);
 use List::Util 1.33 qw(none);
 use Mo::utils 0.01 qw(check_required);
-use Mo::utils::CSS 0.06 qw(check_css_class check_css_unit);
+use Mo::utils::CSS 0.07 qw(check_css_class check_css_unit);
 use Readonly;
 
 Readonly::Array our @HORIZ_ALIGN => qw(center left right);
