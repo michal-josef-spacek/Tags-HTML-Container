@@ -1,4 +1,5 @@
 0.10
+ - Fix ERRORS section in doc.
 
 0.09 2024-05-18T09:02:01+02:00
  - Update to Mo::utils::CSS@0.07.
