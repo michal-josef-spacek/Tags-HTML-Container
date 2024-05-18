@@ -1,4 +1,4 @@
-0.10
+0.10 2024-05-18T09:41:50+02:00
  - Fix ERRORS section in doc.
  - Fix explicit version of Mo::utils::CSS in code.
 
